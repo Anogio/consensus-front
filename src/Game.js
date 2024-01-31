@@ -6,7 +6,11 @@ import OngoingRound from './OngoingRound';
 
 
 function Game({ playerName }) {
-    const socketUrl = `ws://127.0.0.1:8000/ws?player_name=${encodeURIComponent(playerName)}`;
+    const baseUrl = process.env.NODE_ENV === "production"
+      ? "consensus-back.vercel.app"
+      : "127.0.0.1:8000";
+
+    const socketUrl = `ws://${baseUrl}/ws?player_name=${encodeURIComponent(playerName)}`;
     const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl, {shouldReconnect: (closeEvent) => true});
 
     const [nPlayers, setNPlayers] = useState(0)

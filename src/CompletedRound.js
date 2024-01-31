@@ -11,12 +11,12 @@ function CompletedRound({gameState, guesses, playerName}) {
         {yourScore ? <div>Vous finissez au rang {yourRank + 1} avec un score de {yourScore} !</div> : <></>}
         <div>
             {
-                guesses.map((guess) => {
+                guesses.map((guess, index) => {
                     const value = guess.length ? gameState.result.ranked_value_by_word.find((item) => item.word === guess).value : undefined
                     if (value !== undefined) {
-                        return <input disabled value={`${guess} - ${value} points`} />
+                        return <input key={`guess-${index}`} disabled value={`${guess} - ${value} points`} />
                     }
-                    return <input disabled value="" />
+                    return <input key={`guess-${index}`} disabled value="" />
                 })
             }
         </div>
@@ -25,13 +25,13 @@ function CompletedRound({gameState, guesses, playerName}) {
             Classement des joueurs:
             </div><div> 
             {
-                gameState.result.ranked_score_by_player_name.map((item) => ` ${item.player_name}: ${item.score},`)
+                gameState.result.ranked_score_by_player_name.map((item, index) => <span key={`ranking-${index}`}>{`${item.player_name}: ${item.score},`}</span>)
             }
         </div>
         <div>Meilleurs mots:
         </div><div> 
             {
-                gameState.result.ranked_value_by_word.map((item) => ` ${item.word}: ${item.value},`)
+                gameState.result.ranked_value_by_word.map((item, index) =>  <span key={`word-${index}`}>{` ${item.word}: ${item.value},`}</span>)
             }
         </div>
     </div>

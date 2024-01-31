@@ -13,7 +13,7 @@ function OngoingRound({gameState, sendGuesses}) {
 
     useEffect(() => {
         sendGuesses(debouncedGuesses)
-    }, [debouncedGuesses, sendGuesses])
+    }, [debouncedGuesses])
 
     return <div>
         <div>
