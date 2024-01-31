@@ -1,22 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+
+import Game from './Game'
 
 function App() {
+  const [playerNameInput, setPlayerNameInput] = useState('')
+  const [playerName, setPlayerName] = useState()
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {
+          !playerName ? 
+          <div>
+          <input value={playerNameInput} onChange={e => setPlayerNameInput(e.target.value)} />
+          <button onClick={() => setPlayerName(playerNameInput)}>Confirmer</button>
+          </div>
+        :
+        <Game playerName={playerName} />
+        }
       </header>
     </div>
   );
