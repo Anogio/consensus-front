@@ -13,6 +13,9 @@ function App() {
         {
           !playerName ? 
           <div>
+            <h1>
+              Bienvenue sur Consensus !
+            </h1>
           <input value={playerNameInput} onChange={e => setPlayerNameInput(e.target.value)} placeholder='Mon nom' />
           <button onClick={() => setPlayerName(playerNameInput)}>Confirmer</button>
           </div>
