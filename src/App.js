@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
 
@@ -8,14 +7,13 @@ function App() {
   const [playerNameInput, setPlayerNameInput] = useState('')
   const [playerName, setPlayerName] = useState()
 
-
   return (
     <div className="App">
       <header className="App-header">
         {
           !playerName ? 
           <div>
-          <input value={playerNameInput} onChange={e => setPlayerNameInput(e.target.value)} />
+          <input value={playerNameInput} onChange={e => setPlayerNameInput(e.target.value)} placeholder='Mon nom' />
           <button onClick={() => setPlayerName(playerNameInput)}>Confirmer</button>
           </div>
         :

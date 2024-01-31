@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React from 'react';
 import Countdown from 'react-countdown';
 
 function CompletedRound({gameState, guesses, playerName}) {
