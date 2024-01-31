@@ -6,7 +6,7 @@ import OngoingRound from './OngoingRound';
 
 
 function Game({ playerName }) {
-    const [socketUrl, setSocketUrl] = useState(`ws://127.0.0.1:8000/ws?player_name=${encodeURIComponent(playerName)}`);
+    const socketUrl = `ws://127.0.0.1:8000/ws?player_name=${encodeURIComponent(playerName)}`;
     const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl, {shouldReconnect: (closeEvent) => true});
 
     const [nPlayers, setNPlayers] = useState(0)
