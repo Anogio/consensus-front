@@ -6,7 +6,7 @@ import OngoingRound from './OngoingRound';
 
 
 function Game({ playerName }) {
-    const baseUrl = process.env.NODE_ENV === "production"
+    const baseUrl = process.env.APP_ENV === "production"
       ? "consensus-back.vercel.app"
       : "127.0.0.1:8000";
 
