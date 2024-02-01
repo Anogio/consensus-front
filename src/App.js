@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 
-import Game from './Game'
+import Game from './game/Game'
 
 function App() {
   const [playerNameInput, setPlayerNameInput] = useState('')

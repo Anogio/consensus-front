@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Countdown from 'react-countdown';
-import { N_GUESSES } from './constants';
+import { N_GUESSES } from '../constants';
 import { useDebounce } from 'use-debounce';
 
 function OngoingRound({gameState, sendGuesses}) {
