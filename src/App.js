@@ -7,6 +7,12 @@ function App() {
   const [playerNameInput, setPlayerNameInput] = useState('')
   const [playerName, setPlayerName] = useState()
 
+  function handleKeyDown(e) {
+    if (e.key === "Enter") {
+          setPlayerName(playerNameInput)
+        }
+  } 
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,7 +22,7 @@ function App() {
             <h1>
               Bienvenue sur Consensus !
             </h1>
-          <input value={playerNameInput} onChange={e => setPlayerNameInput(e.target.value)} placeholder='Mon nom' />
+          <input onKeyDown={handleKeyDown} value={playerNameInput} onChange={e => setPlayerNameInput(e.target.value)} placeholder='Mon nom' />
           <button onClick={() => setPlayerName(playerNameInput)}>Confirmer</button>
           </div>
         :
